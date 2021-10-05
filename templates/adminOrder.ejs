@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 1.2;
+      }
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+        }
+      }
+      table,
+      td,
+      th {
+        /* border: 1px solid #ddd; */
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      color: #44464a;
+      font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+    "
+  >
+    <div
+      style="
+        margin: 20px auto;
+        width: 50%;
+        background-color: #f2fafc;
+        border: 5px solid #f2fafc;
+      "
+    >
+      <div
+        style="
+          font-size: 30px;
+          color: #44464a;
+          line-height: 1.2;
+          word-break: break-word;
+          text-align: center;
+          font-family: 'Playfair Display', Georgia, serif;
+          margin: 10px 0;
+        "
+      >
+        New Order Received!
+      </div>
+      <div class="row" style="background-color: white; width: 100%">
+        <div class="column">
+          <div style="margin: 10px">Order number: <%= order.order_code %></div>
+          <div style="margin: 10px">Invoice Date: <%= order.invoiceDate %></div>
+        </div>
+        <div class="column">
+          <div style="margin: 10px">
+            Customer Name: <strong> <%= order.customer_name %></strong>
+          </div>
+          <div style="margin: 10px; width: 100%">
+            <div
+              class="column"
+              style="padding-left: 0px; padding-right: 0px; width: auto"
+            >
+              Address:
+            </div>
+            <div class="column">
+              <% if (order.shipping_address &&
+              order.shipping_address.building_name) { %> <%=
+              order.shipping_address.building_name %> <br />
+              <% } %> <% if (order.shipping_address &&
+              order.shipping_address.street) { %> <%=
+              order.shipping_address.street %> <br />
+              <% } %> <% if (order.shipping_address &&
+              order.shipping_address.city) { %> <%= order.shipping_address.city
+              %> <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin: 10px 0; font-size: 14px">
+        <table>
+          <tr style="background-color: #fafbfb">
+            <th>Item</th>
+            <th style="text-align: center">Unit Price</th>
+            <th style="text-align: center">Quantity</th>
+            <th style="text-align: end">Total</th>
+          </tr>
+          <% order.products.forEach(function(product){ %>
+          <tr>
+            <td><%= product.name %></td>
+            <td style="text-align: center"><%= product.productCost %></td>
+            <td style="text-align: center"><%= product.quantity %></td>
+            <td style="text-align: end">
+              <%= product.quantity * product.productCost %>
+            </td>
+          </tr>
+          <% }); %>
+
+          <tr>
+            <td style="font-size: 15px; font-weight: bold">SubTotal</td>
+            <td style="text-align: center"></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: end"><%= order.subTotal %></td>
+          </tr>
+          <tr>
+            <td style="font-size: 15px; font-weight: bold">Shipping</td>
+            <td style="text-align: center"></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: end"><%= order.shippingCost %></td>
+          </tr>
+          <tr>
+            <td style="font-size: 15px; font-weight: bold"></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: center"></td>
+            <td
+              style="
+                text-align: end;
+                color: red;
+                font-size: 16px;
+                font-weight: bold;
+              "
+            >
+              Total: <%= order.subTotal + order.shippingCost %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

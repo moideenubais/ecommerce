@@ -1,0 +1,53 @@
+{
+  "name": "qsales",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moideenubais/qsales.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moideenubais/qsales/issues"
+  },
+  "homepage": "https://github.com/moideenubais/qsales#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.9"
+  },
+  "dependencies": {
+    "@mailchimp/mailchimp_transactional": "^1.0.32",
+    "acl": "^0.4.11",
+    "async": "^3.2.0",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "csv": "^5.5.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "google-auth-library": "^7.9.1",
+    "helmet": "^4.6.0",
+    "joi": "^17.4.0",
+    "joi-objectid": "^3.0.1",
+    "joi-password-complexity": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.0",
+    "mongoose-materialized": "^0.2.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.6.2",
+    "pdfmake": "^0.2.2",
+    "socket.io": "^4.1.3",
+    "uniqid": "^5.3.0",
+    "web-push": "^3.4.5"
+  }
+}
