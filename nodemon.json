@@ -1,19 +1,6 @@
 {
   "env": {
     "MONGO_URL": "mongodb://localhost:27017/qsales",
-    "JWT_KEY": "MyQSalesSecretJwtKey",
-    "CLIENT_URL": "google.com",
-    "PASSWORD_RESET_JWT_KEY": "MySecretQsalesJwtKeyPasswordReset",
-    "PASSWORD_RESET_URL": "http://127.0.0.1:5500/passwordResetForm.html",
-    "NODEMAILER_EMAIL": "webmail@qsales2022.com",
-    "NODEMAILER_PASSWORD": "HssRN0CjxgvP",
-    "MAIL_SERVICE": "gmail",
-    "PUBLIC_VAPID_KEY": "BI6S7AmYz_7fByOONsvKB8SScZMxGcx6soU_YC_lp7jeukyJtvA-x8DErbK5A_xUHu2uXOKNeoWDavEwxv7yYnU",
-    "PRIVATE_VAPID_KEY": "6_OGJSm7724jEKoMIiQrS3XopCU5wTTdomVcrgE4-z0",
-    "WEB_PUSH_CONTACT": "mailto: contact@my-site.com",
-    "FRONT_END_URL": "http://localhost:3000",
-    "ADMIN_MAIL": "ubiveiz@gmail.com",
-    "OAUTH_ID": "1084263875724-viv08rko92315m66dt7gcl6th2eo7aid.apps.googleusercontent.com",
-    "PASSWORD_GOOGLE_SIGN_IN": "MySecretGooglePassword"
+    "JWT_KEY": "MyQSalesSecretJwtKey"
   }
 }
